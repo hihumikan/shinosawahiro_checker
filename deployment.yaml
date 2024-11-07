@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shinosawa-check
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shinosawa-check
+  template:
+    metadata:
+      labels:
+        app: shinosawa-check
+    spec:
+      containers:
+        - name: shinosawa-check
+          image: hihumikan/shinosawa-check:latest
+          ports:
+            - containerPort: 80
